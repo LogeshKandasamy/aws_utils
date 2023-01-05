@@ -11,7 +11,7 @@ def create_env_existing_resources():
     for func_page in func_paginator.paginate():
         for func in func_page['Functions']:
             print(func['FunctionName'])
-            if(func['FunctionName'].startswith('pers-r2o-sync')):
+            if(func['FunctionName'].startswith('test-aws')):
                 response = client.update_function_configuration(
                     FunctionName=func['FunctionName'],
                     Environment={
@@ -21,19 +21,7 @@ def create_env_existing_resources():
                         }
                     }
                 )
-                tag_response = client.tag_resource(
-                    Resource=func['FunctionArn'],
-                    Tags={
-                        'Category': 'Environment:DEV+Criticality:MissionCritical+Role:R2O',
-                        'CostManagement':'CostCenter:US98010530+MRU:CATW+LocationCode:1100MFY600000000+ExpirationDate:01/01/2050',
-                        'Owner':'EPRID:210128+Name:VoyagerPerson+Contact:chad.mccord@hp.com'
-                    }
-                )
-                print(tag_response)
-                tag_list_response = client.list_tags(
-                    Resource=func['FunctionArn'],
-                )
-                print(tag_list_response)
+               print(response)
 
 def create_tags():
     response = client.list_functions()
@@ -42,13 +30,13 @@ def create_tags():
     for func_page in func_paginator.paginate():
         for func in func_page['Functions']:
             print(func['FunctionName'])
-            if(func['FunctionName'].startswith('pers-')):
+            if(func['FunctionName'].startswith('test-')):
                 tag_response = client.tag_resource(
                     Resource=func['FunctionArn'],
                     Tags={
-                        'Category': 'Environment:DEV+Criticality:MissionCritical+Role:R2O',
-                        'CostManagement':'CostCenter:US98010530+MRU:CATW+LocationCode:1100MFY600000000+ExpirationDate:01/01/2050',
-                        'Owner':'EPRID:210128+Name:VoyagerPerson+Contact:chad.mccord@hp.com'
+                        'Category': 'DEV',
+                        'CostManagement':'CostCenter',
+                        'Owner':'Data'
                     }
                 )
                 print(tag_response)

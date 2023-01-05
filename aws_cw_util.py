@@ -36,15 +36,14 @@ def delete_log_streams(prefix=None):
 
 
 if __name__ == '__main__':
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-batch-create')
+    delete_log_streams(prefix='/aws/lambda/test-aws--batch-create')
 
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-entity-inbound')
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-reltio-auth')
+    delete_log_streams(prefix='/aws/lambda/test-aws-samplefn-inbound')
 
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-entity-create-inbound')
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-entity-create')
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-entity-create-outbound')
+    delete_log_streams(prefix='/aws/lambda/test-aws-samplefn-create-inbound')
+    delete_log_streams(prefix='/aws/lambda/test-aws-samplefn-create')
+    delete_log_streams(prefix='/aws/lambda/test-aws-samplefn-create-outbound')
 
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-entity-merge-inbound')
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-entity-merge')
-    delete_log_streams(prefix='/aws/lambda/pers-r2o-sync-entity-merge-outbound')
+    delete_log_streams(prefix='/aws/lambda/test-aws-samplefn-merge-inbound')
+    delete_log_streams(prefix='/aws/lambda/test-aws-samplefn-merge')
+    delete_log_streams(prefix='/aws/lambda/test-aws-samplefn-merge-outbound')
